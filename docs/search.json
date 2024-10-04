@@ -1,0 +1,660 @@
+[
+  {
+    "objectID": "biohack-modulo5.html#section",
+    "href": "biohack-modulo5.html#section",
+    "title": "biohack-modulo5",
+    "section": "",
+    "text": "Módulo 5: Introducción a la Estadística Inferencial con R\n\nMauricio Moreno, PhD"
+  },
+  {
+    "objectID": "biohack-modulo5.html#generalidades",
+    "href": "biohack-modulo5.html#generalidades",
+    "title": "biohack-modulo5",
+    "section": "Generalidades",
+    "text": "Generalidades\n\n\nUno de los objetivos de este curso es el evitar en la medida de lo posible el adentrarnos en teoría estadística. Entre los temas que dejaremos de lado están:\n\nTeoría de la probabilidad básica\nLey de los números grandes\nDistribución muestral (o de muestreo)\nTeorema del límite central\nValores críticos de una prueba\nDescripción a detalle de la distribución normal\nDescripción a detalle de otras distribuciones\n\nPara quién esté interesado en un recurso para ver estos temas a profundidad, recomiendo el libro de Danielle Navarro: Learning Statistics with R"
+  },
+  {
+    "objectID": "biohack-modulo5.html#muestras-poblaciones-y-muestreos",
+    "href": "biohack-modulo5.html#muestras-poblaciones-y-muestreos",
+    "title": "biohack-modulo5",
+    "section": "Muestras, poblaciones y muestreos",
+    "text": "Muestras, poblaciones y muestreos\n\n\nMuestra: Es un conjunto de observaciones que provienen de una población de interés. Idealmente, esta debería ser lo suficientemente grande para hacer inferencias de esa población.\nPoblación: Es el conjunto de todas las posibles observaciones de las que tengamos interés en realizar inferencias. Es vital el definir adecuadamente sus características.\nMuestreo: Es el proceso por el cual obtendremos nuestra muestra para un estudio. En estudios experimentales, el muestreo se entiende también como el proceso de aleatorización/randomización de unidades experimentales."
+  },
+  {
+    "objectID": "biohack-modulo5.html#muestreo-simple-sin-reemplazo",
+    "href": "biohack-modulo5.html#muestreo-simple-sin-reemplazo",
+    "title": "biohack-modulo5",
+    "section": "Muestreo simple sin reemplazo",
+    "text": "Muestreo simple sin reemplazo\n\nTomado de Learning Statistics with R"
+  },
+  {
+    "objectID": "biohack-modulo5.html#muestreo-simple-con-reemplazo",
+    "href": "biohack-modulo5.html#muestreo-simple-con-reemplazo",
+    "title": "biohack-modulo5",
+    "section": "Muestreo simple con reemplazo",
+    "text": "Muestreo simple con reemplazo\n\nTomado de Learning Statistics with R"
+  },
+  {
+    "objectID": "biohack-modulo5.html#otros-tipos-de-muestreo",
+    "href": "biohack-modulo5.html#otros-tipos-de-muestreo",
+    "title": "biohack-modulo5",
+    "section": "Otros tipos de muestreo",
+    "text": "Otros tipos de muestreo\n\n\nMuestreo sistemático: consiste en tomar un determinado elemento de la población siguiendo un patrón. Por ejemplo, escoger los múltiplos de cuatro enumerados en una lista de posibles individuos de estudio (solía ser una práctica común en ensayos clínicos).\nMuestreo a conveniencia: consiste en incluir en el estudio a todos los elementos disponibles de la población de interés. Esto sucede sobre todo con poblaciones escasas o de dificil acceso (ejemplo, realizar estudios en comunidades LGBTIQ+).\nMuestreo estratificado: es una combinación del muestreo simple con los sujetos agrupados por alguna característica en común, por ejemplo sexo, edad, hábitat (suele ser usado en exit polls y conteos rápidos)."
+  },
+  {
+    "objectID": "biohack-modulo5.html#parámetros-poblacionales-y-estadísticos-muestrales",
+    "href": "biohack-modulo5.html#parámetros-poblacionales-y-estadísticos-muestrales",
+    "title": "biohack-modulo5",
+    "section": "Parámetros poblacionales y estadísticos muestrales",
+    "text": "Parámetros poblacionales y estadísticos muestrales\n\n\nParámetros poblacionales: llamados también verdaderos. Corresponden al escenario en que todos los individuos de una población podrían ser medidos con respecto a una característica.\nEstadísticos muestrales: son aproximaciones de los parámetros verdaderos que corresponden a mediciones de una muestra de la población.\nLa estadística gira alrededor de la inferencia sobre estadísticos muestrales, ya que en el práctica, los parámetros poblacionales son prácticamente imposibles de determinar."
+  },
+  {
+    "objectID": "biohack-modulo5.html#media-aritmética",
+    "href": "biohack-modulo5.html#media-aritmética",
+    "title": "biohack-modulo5",
+    "section": "Media aritmética",
+    "text": "Media aritmética\n\n\n\n\n\n\n\n\nSímbolo\n¿Qué es?\n¿Sabemos qué es?\n\n\n\n\n\\(\\overline{X}\\)\nMedia aritmética de la muestra\nCalculada de los datos\n\n\n\\(\\mu\\)\nVerdadera media aritmética de la población\nCasi nunca es conocida\n\n\n\\(\\hat{\\mu}\\)\nEstimado de la media aritmética de la población\nSí, identica a \\(\\overline{X}\\)\n\n\n\n\\[\n\\overline{X} = \\frac{1}{n}\\sum^{n}_{i=1}\\left(X_i\\right)\n\\]"
+  },
+  {
+    "objectID": "biohack-modulo5.html#desviación-estándar",
+    "href": "biohack-modulo5.html#desviación-estándar",
+    "title": "biohack-modulo5",
+    "section": "Desviación estándar",
+    "text": "Desviación estándar\n\n\n\n\n\n\n\n\nSímbolo\n¿Qué es?\n¿Sabemos qué es?\n\n\n\n\n\\(s\\)\nDesviación estándar de la muestra\nCalculada de los datos\n\n\n\\(\\sigma\\)\nVerdadera desviación estándar de la población\nCasi nunca es conocida\n\n\n\\(\\hat{\\sigma}\\)\nEstimado de la deviación estándar de la población\nSí, pero no es igual a \\(s\\)\n\n\n\n\n\n\\[\ns = \\sqrt{\\frac{1}{n} \\sum_{i=1}^n (X_i - \\overline{X})^2}\n\\]\n\n\\[\n\\sigma = \\sqrt{\\frac{1}{n-1} \\sum_{i=1}^n (X_i - \\overline{X})^2}\n\\]"
+  },
+  {
+    "objectID": "biohack-modulo5.html#varianza",
+    "href": "biohack-modulo5.html#varianza",
+    "title": "biohack-modulo5",
+    "section": "Varianza",
+    "text": "Varianza\n\n\n\n\n\n\n\n\nSímbolo\n¿Qué es?\n¿Sabemos qué es?\n\n\n\n\n\\(s^2\\)\nVarianza de la muestra\nCalculada de los datos\n\n\n\\(\\sigma^2\\)\nVerdadera varianza de la población\nCasi nunca es conocida\n\n\n\\(\\hat{\\sigma}^2\\)\nEstimado de la varianza de la población\nSí, pero no es igual a \\(s^2\\)\n\n\n\n\n\n\\[\ns^2 = \\frac{1}{n} \\sum_{i=1}^n (X_i - \\overline{X})^2\n\\]\n\n\\[\n\\sigma^2 = \\frac{1}{n-1} \\sum_{i=1}^n (X_i - \\overline{X})^2\n\\]"
+  },
+  {
+    "objectID": "biohack-modulo5.html#intervalos-de-confianza",
+    "href": "biohack-modulo5.html#intervalos-de-confianza",
+    "title": "biohack-modulo5",
+    "section": "Intervalos de confianza",
+    "text": "Intervalos de confianza\n\n\nLos estimados de las verdaderas \\(\\mu\\) y \\(\\sigma\\) (\\(\\hat{\\mu}\\) y \\(\\hat{\\sigma}\\)) provienen de distribuciones de muestreo, y como tales, inherentemente poseen cierto grado de incertidumbre.\nLos intervalos de confianza son medidas que nos permiten tener una idea de esa incertidumbre.\nEn el estudio de la distribución normal estándar tenemos el conocimiento que existe un 95% de chances que una cantidad normalmente distribuida colectada al azar, estará distante de la media aritmética entre \\(\\pm\\) 1.96 desviaciones estándar.\n\n\n\n\\[\n\\overline{X} - \\left(1.96\\times\\frac{\\sigma}{\\sqrt{n}}\\right) \\leq \\mu \\leq \\overline{X} + \\left(1.96\\times\\frac{\\sigma}{\\sqrt{n}}\\right)\n\\]\n\n\nY se interpreta como: con un 95% de confianza, podemos esperar que la media aritmética verdadera de la población de interés se encuentra contenida entre…\n\n\n\n\n\\[\n\\text{IC}_{95}=\\overline{X} \\pm \\left(1.96\\times\\frac{\\sigma}{\\sqrt{n}}\\right)\n\\]"
+  },
+  {
+    "objectID": "biohack-modulo5.html#intervalos-de-confianza-1",
+    "href": "biohack-modulo5.html#intervalos-de-confianza-1",
+    "title": "biohack-modulo5",
+    "section": "Intervalos de confianza",
+    "text": "Intervalos de confianza\n\n\nSin embargo, como mencionamos \\(\\sigma\\) es casi nunca conocido, y es necesario hacer una corrección a la fórmula anterior. La distribución normal trabaja bien baja la presunción de un número grande de observaciones.\nEn su lugar, en 1908 el estadístico Gosset parametrizó una distribución para muestras pequeñas que asemeja a la normal. Con el tiempo, esta distribución adoptó el nombre de Student.\nY es precisamente que la fórmula anterior es corregida con la distribución de Student y así poder calcular intervalos de confianza para muestras pequeñas usando \\(s\\) en lugar de \\(\\sigma\\):\n\n\n\n\\[\n\\text{IC}_{95}=\\overline{X} \\pm \\left(t_{n-1,\\alpha/2}\\times\\frac{s}{\\sqrt{n}}\\right)\n\\]\n\n\nDonde el valor \\(t_{n-1,\\alpha/2}\\) refiere a:\n\n\\(n-1\\): los grados de libertad, igual al número de observaciones \\(n\\) de la muestra, menos 1\n\\(\\alpha\\): es el nivel de significancia (probabilidad de obtener un resultado erróneo por azar).\nEstos valores en el pasado se encontraban tabulados en libros de texto, hoy contamos con R!"
+  },
+  {
+    "objectID": "biohack-modulo5.html#ejemplo-de-parámetros-poblacionales-y-estadísticos-muestrales",
+    "href": "biohack-modulo5.html#ejemplo-de-parámetros-poblacionales-y-estadísticos-muestrales",
+    "title": "biohack-modulo5",
+    "section": "Ejemplo de parámetros poblacionales y estadísticos muestrales",
+    "text": "Ejemplo de parámetros poblacionales y estadísticos muestrales\n\n\nSupongamos que el IQ de toda una población puede estar caracterizado por una media aritmética, \\(\\mu\\), igual a 100, con una desviación estándar, \\(\\sigma\\), igual a 15.\nSi tomo una muestra de 100 individuos de dicha población, podría tener una media aritmética de esta muestra, \\(\\overline{X}\\), igual a 101.4 y una desviación estándar de la muestra, \\(s\\), igual a 13.7.\nAsí \\(\\overline{X}\\) y \\(s\\) son aproximaciones a los valores verdareros de \\(\\mu\\) y \\(\\sigma\\) de esa población."
+  },
+  {
+    "objectID": "biohack-modulo5.html#ejemplo-de-parámetros-poblacionales-y-estadísticos-muestrales-1",
+    "href": "biohack-modulo5.html#ejemplo-de-parámetros-poblacionales-y-estadísticos-muestrales-1",
+    "title": "biohack-modulo5",
+    "section": "Ejemplo de parámetros poblacionales y estadísticos muestrales",
+    "text": "Ejemplo de parámetros poblacionales y estadísticos muestrales\n\n\nSupongamos que en lugar de tener acceso al IQ de 100 personas, medimos al azar el IQ de sólamente 5 personas y deseamos calcular el \\(\\text{IC}_{95}\\)\n\n\n\n\nIQ_muestra &lt;- c(101, 98, 116, 96, 129)   # muestra\nn &lt;- 5                                   # número de observaciones\nt95 &lt;- qt(p = 0.975, df = n -1)          # valor de Student para 4 grados de libertad al 5%\nx &lt;- mean(IQ_muestra)                    # media aritmética de la muestra\ns &lt;- sd(IQ_muestra)                      # desviación estándar de la muestra\nls &lt;- x + (t95*s/(n-1))                  # límite superior del IC95\nli &lt;- x - (t95*s/(n-1))                  # límite inferior del IC95"
+  },
+  {
+    "objectID": "biohack-modulo5.html#intervalos-de-confianza-2",
+    "href": "biohack-modulo5.html#intervalos-de-confianza-2",
+    "title": "biohack-modulo5",
+    "section": "Intervalos de confianza",
+    "text": "Intervalos de confianza\n\nSupongamos que en lugar de tener acceso al IQ de 100 personas, medimos al azar el IQ de sólamente 5 personas y deseamos calcular el \\(\\text{IC}_{95}\\)\n\n\nIQ_muestra &lt;- c(101, 98, 116, 96, 129)   # muestra\nn &lt;- 5                                   # número de observaciones\nt95 &lt;- qt(p = 0.975, df = n -1)          # valor de Student para 4 grados de libertad al 5%\nx &lt;- mean(IQ_muestra)                    # media aritmética de la muestra\ns &lt;- sd(IQ_muestra)                      # desviación estándar de la muestra\nls &lt;- x + (t95*s/(n-1))                  # límite superior del IC95\nli &lt;- x - (t95*s/(n-1))                  # límite inferior del IC95\nprint(paste0(\"Con un 95% de confianza podemos esperar que la verdadera media aritmética de IQ de esta población se encuentre entre [\",round(li,0),\", \",round(ls,0),\"]\"))\n\n[1] \"Con un 95% de confianza podemos esperar que la verdadera media aritmética de IQ de esta población se encuentre entre [98, 118]\""
+  },
+  {
+    "objectID": "biohack-modulo5.html#hipótesis-de-investigación-vs.-hipótesis-estadísticas",
+    "href": "biohack-modulo5.html#hipótesis-de-investigación-vs.-hipótesis-estadísticas",
+    "title": "biohack-modulo5",
+    "section": "Hipótesis de investigación vs. hipótesis estadísticas",
+    "text": "Hipótesis de investigación vs. hipótesis estadísticas\n\n\nUna hipótesis de investigación gira alrededor del desarrollar una conclusión científica acerca de un tema de interés del investigador. Ejemplos: el fumar causa cáncer, las vacunas causan/previenen enfermedades.\n\nEs decir, pueden tener una naturaleza subjetiva, que expresan la pregunta del investigador de una manera general sin mayor descripción del ¿cómo? voy a probar o descartarla, ni ¿en qué extensión?.\n\nHipótesis estadísticas, por el contrario, deben ser matemáticamente precisas y basadas en las características de los datos que recolectemos con el fin de probar o descartar la hipótesis de investigación.\n\nCómo es de esperar, el probar o descartar una hipótesis estadística será únicamente válida para la población sobre la cual una muestra fue tomada.\nEs ahí donde radica la importancia en definir la población sujeto de estudio de manera planificada con el objetivo de que cumpla tantos detalles sean necesarios de la hipótesis de investigación. Ejemplo, el modelo animal más usado es el ratón. Si bien es cierto constituye uno de los primeros pasos en el desarrollo de muchas investigaciones, los hallazgos en ratones NO pueden ser inmediatamente atribuibles a suceder en seres humanos."
+  },
+  {
+    "objectID": "biohack-modulo5.html#hipótesis-nula-y-alternativa",
+    "href": "biohack-modulo5.html#hipótesis-nula-y-alternativa",
+    "title": "biohack-modulo5",
+    "section": "Hipótesis nula y alternativa",
+    "text": "Hipótesis nula y alternativa\n\n\nLa formulación de hipótesis estadísticas puede reducirse a establer preguntas de investigación en forma de las hipótesis nula y alternativa.\nSupongamos que tenemos dos grupos experimentales para probar la eficiencia de un nuevo procedimiento quirúrgico. Un grupo de pacientes será sometido a la intervención tradicional (control), y el otro grupo al nuevo procedimiento (experimental).\n\nLa hipótesis nula (\\(H_0\\)) establece que: no existe diferencia entre el grupo control y el grupo experimental,\nMientras que la hipótesis alternativa (\\(H_a\\)) establece que: sí existe differencia entre ambos.\n\n\n\n\n\\[\\begin{align}\nH_0& : \\mu_c = \\mu_e& H_0& : \\mu_c- \\mu_e =0 \\\\\nH_a& : \\mu_c \\neq \\mu_e& H_a& : \\mu_c- \\mu_e \\neq 0\n\\end{align}\\]"
+  },
+  {
+    "objectID": "biohack-modulo5.html#tipos-de-errores",
+    "href": "biohack-modulo5.html#tipos-de-errores",
+    "title": "biohack-modulo5",
+    "section": "Tipos de errores",
+    "text": "Tipos de errores\n\n\nAl llevar a cabo pruebas de hipótesis pueden ocurrir errores\n\n\n\n\\[\\begin{array}{|c||c||c|}\n  \\hline\n  & \\text{Acepta }H_{0} & \\text{Rechaza }H_{0} \\\\\n  \\hline\nH_{0}\\text{ es verdadera} & \\text{Desición correcta} & \\text{Error tipo I} \\\\\n  H_{0}\\text{ es falsa} & \\text{Error tipo II} & \\text{Desición correcta} \\\\\n   \\hline\n\\end{array}\\]\n\n\n\n¿De qué depende que aceptemos correctamente o no la hipótesis nula?\n\n\n\nLas pruebas estadísticas dependen de la cantidad de variación y la diferencia entre tratamientos a detectar (tamaño del efecto). La solución: aumentar el número de observaciones"
+  },
+  {
+    "objectID": "biohack-modulo5.html#poder-de-una-prueba-estadística",
+    "href": "biohack-modulo5.html#poder-de-una-prueba-estadística",
+    "title": "biohack-modulo5",
+    "section": "Poder de una prueba estadística",
+    "text": "Poder de una prueba estadística\n\n\nEl poder de una prueba estadística es la probabilidad de rechazar la hipótesis nula cuando esta es de hecho falsa.\nSe puede derivar de la tabla anterior\n\n\n\n\\[\\begin{array}{|c||c||c|}\n  \\hline\n  & \\text{Acepta }H_{0} & \\text{Rechaza }H_{0} \\\\\n  \\hline\nH_{0}\\text{ es verdadera} & 1-\\alpha\\text{ (Prob. decisión correcta)} & \\alpha\\text{ (Taza Error tipo I)} \\\\\n  H_{0}\\text{ es falsa} & \\beta\\text{ (Taza Error tipo II)} & 1-\\beta\\text{ (Poder)} \\\\\n   \\hline\n\\end{array}\\]\n\n\n\nEn la práctica, existen fórmulas cerradas para la determinación del número mínimo de observaciones para alcanzar un poder adecuado (\\(\\ge\\) 80%)\nA este procedimiento se le conoce como análisis de poder o determinación del tamaño de la muestra y del que hablaremos en más detalle más adelante."
+  },
+  {
+    "objectID": "biohack-modulo5.html#tamaño-del-efecto",
+    "href": "biohack-modulo5.html#tamaño-del-efecto",
+    "title": "biohack-modulo5",
+    "section": "Tamaño del efecto",
+    "text": "Tamaño del efecto\n\n\nEl tamaño del efecto (\\(\\theta\\)) es un valor que por lo general es determinado por el investigador y que puede ser la diferencia de interés a detectar en una prueba estadística.\nPor ejemplo, supongamos que tenemos un grupo de ratones que poseen una media de 110 mg/dL de glucosa en sangre y podrían ser parte de un linaje para ser usado como modelo para hiperglucemia. Si el valor normal de glucosa en ratones es de 100 mg/dL, el investigador estaría interesado en saber cuál es el número de ratones necesarios para con un 80% de poder, determinar si el tamaño de efecto \\(\\theta = 10\\) es estadísticamente distinto de 0.\nLas hipótesis de esta prueba se vería así\n\n\n\n\\[\\begin{align}\nH_0& : \\mu_c- \\mu_r = \\theta \\\\\nH_a& : \\mu_c- \\mu_r \\neq \\theta\n\\end{align}\\]\n\n\n\nEsta hipótesis corresponde a la prueba estadística más común: dos colas"
+  },
+  {
+    "objectID": "biohack-modulo5.html#pruebas-de-dos-colas",
+    "href": "biohack-modulo5.html#pruebas-de-dos-colas",
+    "title": "biohack-modulo5",
+    "section": "Pruebas de dos colas",
+    "text": "Pruebas de dos colas\n\\[\\begin{align}\nH_0& : \\mu_c- \\mu_r = \\theta \\\\\nH_a& : \\mu_c- \\mu_r \\neq \\theta\n\\end{align}\\]\n\nImagen tomada de UCLA: Advanced Research Computing"
+  },
+  {
+    "objectID": "biohack-modulo5.html#pruebas-de-una-cola",
+    "href": "biohack-modulo5.html#pruebas-de-una-cola",
+    "title": "biohack-modulo5",
+    "section": "Pruebas de una cola",
+    "text": "Pruebas de una cola\n\\[\\begin{align}\nH_0& : \\mu_c- \\mu_r \\ge \\theta \\\\\nH_a& : \\mu_c- \\mu_r &lt; \\theta\n\\end{align}\\]\n\nImagen tomada de UCLA: Advanced Research Computing"
+  },
+  {
+    "objectID": "biohack-modulo5.html#pruebas-de-una-cola-1",
+    "href": "biohack-modulo5.html#pruebas-de-una-cola-1",
+    "title": "biohack-modulo5",
+    "section": "Pruebas de una cola",
+    "text": "Pruebas de una cola\n\\[\\begin{align}\nH_0& : \\mu_c- \\mu_r \\le \\theta \\\\\nH_a& : \\mu_c- \\mu_r &gt; \\theta\n\\end{align}\\]\n\nImagen tomada de UCLA: Advanced Research Computing"
+  },
+  {
+    "objectID": "biohack-modulo5.html#el-valor-p",
+    "href": "biohack-modulo5.html#el-valor-p",
+    "title": "biohack-modulo5",
+    "section": "El valor p",
+    "text": "El valor p\n\n\n\n\nPero ¿cómo sabemos si una hipótesis es aceptada o rechazada?\nEl valor p, describe que tan probable sería observar resultados de la prueba asumiendo que la hipótesis nula no hubiese sido rechazada. Por ello, a menores valores p, mayor la diferencia estadística con respecto a la hipótesis alternativa.\nEl valor p también depende de que tan “estricta” queramos sea la prueba, y esto se define con el grado de significancia (usualmente igual a 5%, y a 1%)\n\n\n\n\n\n\n\n\n\n\nImagen tomada de Towards DataScience"
+  },
+  {
+    "objectID": "biohack-modulo5.html#antes-de-continuar",
+    "href": "biohack-modulo5.html#antes-de-continuar",
+    "title": "biohack-modulo5",
+    "section": "Antes de continuar",
+    "text": "Antes de continuar\n\n\nImagen tomada de aquí"
+  },
+  {
+    "objectID": "biohack-modulo5.html#antes-de-continuar-1",
+    "href": "biohack-modulo5.html#antes-de-continuar-1",
+    "title": "biohack-modulo5",
+    "section": "Antes de continuar",
+    "text": "Antes de continuar\n\n\nEl umbral de 0.05 es una convención arbitraria creada por Fischer en los inicios de la estadística moderna.\nLastimosamente, se ha generalizado la idea de que por más mínima sea la diferencia con respecto a 0.05, esta representa la diferencia entre publicar o no (en el campo académico), entre lanzar o no un nuevo fármaco/producto al mercado (en la industria).\nEn 2014, debido a un fallo de la corte suprema de justicia de los Estados Unidos que le dio la potestad a los inversionistas de farmaceúticas a demandarlas por fallar en reportar efectos secundarios de sus productos a pesar de haber sido hallados estadísticamente no significativos, la Asociación Americana de Estadística (ASA) se vio en la necesidad de definir más exhaustivamente el concepto del valor p.\nEntre las recomendaciones de la ASA, se enfatizó el dar mayor prioridad a la estimación de otros estadísticos complementarios al valor p, tales como intervalos de confianza u otros provenientes de la estadística Bayesiana (intervalos de credibilidad, factores de Bayes).\nEsta última (estadística Bayesiana), ofrece una interpretación más natural al referirnos a los resultados en términos de probabilidades y no en números arbirtrarios como el valor p.\nEn resumen, una investigación no es inútil si el valor p sobrepasa o está por debajo de 0.05 por cantidades pequeñas."
+  },
+  {
+    "objectID": "biohack-modulo5.html#antes-de-continuar-2",
+    "href": "biohack-modulo5.html#antes-de-continuar-2",
+    "title": "biohack-modulo5",
+    "section": "Antes de continuar",
+    "text": "Antes de continuar\n\n\nEn su lugar, en escenarios en que el valor p está alejado por una décima o varias centésimas de 0.05, los resultados deberían interpretarse como indeterminados para generalizar sobre la población objeto de estudio y específicos a las condiciones experimentales (análisis estadísticos, instrumentos de medición, etc) bajo las cuales fueron tomadas y modeladas las mediciones.\nEn el contexto de los modelos estadísticos que veremos más adelante, esto ha derivado en un “temor” del investigador cuando los resultados no pasan los chequeos de los supuestos sobre los que estos modelos se cimentan. Sobre todo cuando el valor p dista de 0.05 por ínfimas cantidades.\nEsto puede llevar a malas prácticas científicas tales como: no reportar el resultado de los chequeos, blindar los datos, escoger “outliers” y removerlos y en el peor de los casos, manipular los datos para tratar de acomodar nuestros datos a estos chequeos.\nTodo lo que he mencionado, no solamente constituyen casos de mala conducta científica, sino lo que hoy en día se le conoce como p hacking (que se puede resumir a torturar los datos hasta que nos confiesen una verdad agradable a nuestros propósitos)."
+  },
+  {
+    "objectID": "biohack-modulo5.html#pruebas-t",
+    "href": "biohack-modulo5.html#pruebas-t",
+    "title": "biohack-modulo5",
+    "section": "Pruebas t",
+    "text": "Pruebas t\n\n\nLas pruebas t son usadas para encontrar la diferencia entre dos medias aritméticas.\nLa \\(H_0\\) en estas pruebas es que las medias aritméticas son las mismas.\nSe rechaza la \\(H_0\\) cuando el valor p resultante es \\(&lt;\\) 0.05\nExisten tres tipos de pruebas t\n\nPruebas t de una muestra\nPruebas t de muestras independientes\nPruebas t de muestras emparejadas\n\nEstas pruebas fueron desarrolladas bajo la suposición de la normalidad y de homogeneidad de las varianzas.\nDe acuerdo al teorema del límite central, muestras grandes casi aseguran la normalidad.\nCuando el número de observaciones en una muestra es pequeño, es recomendable llevar a cabo un test de normalidad para decidir si es posible una prueba t o una de sus alternativas."
+  },
+  {
+    "objectID": "biohack-modulo5.html#normalidad-de-una-muestra",
+    "href": "biohack-modulo5.html#normalidad-de-una-muestra",
+    "title": "biohack-modulo5",
+    "section": "Normalidad de una muestra",
+    "text": "Normalidad de una muestra\n\n\nAntes de llevar a cabo las pruebas t, hemos mencionado sus supuestos. Por ello, es aconsejable el siempre realizar estas pruebas antes de usarlas.\nExisten dos tipos de pruebas para establecer si una muestra es normalmente distribuida o no\n\nIndirectamente: gráfico Q-Q\nPrueba formal de normalidad (ejemplo: Shapiro-Wilk)\n\nEn el caso del ANOVA, es importante enfatizar que estas pruebas no necesariamente tienen que hacerse antes de la prueba, como ya veremos más adelante."
+  },
+  {
+    "objectID": "biohack-modulo5.html#gráfico-q-q",
+    "href": "biohack-modulo5.html#gráfico-q-q",
+    "title": "biohack-modulo5",
+    "section": "Gráfico Q-Q",
+    "text": "Gráfico Q-Q\n\n\nEl gráfico Q-Q es una prueba visual indirecta de la normalidad.\nConsiste en crear un gráfico de dispersión entre los valores observados de una muestra vs. los valores que deberían estos tener si siguieran una distribución normal.\nMientras en el gráfico de dispersión los puntos más se distribuyan a lo largo de una diagonal, más cercanos están los datos de la muestra a seguir un distribución normal.\nSu desventaja es que es muy subjetivo, y a menudo requiere una prueba formal para poder confirmarlo."
+  },
+  {
+    "objectID": "biohack-modulo5.html#gráfico-q-q-1",
+    "href": "biohack-modulo5.html#gráfico-q-q-1",
+    "title": "biohack-modulo5",
+    "section": "Gráfico Q-Q",
+    "text": "Gráfico Q-Q\n\nset.seed(123)\ny &lt;- rnorm(n = 30, mean = 0, sd = 1)  # simulamos 30 observaciones de una normal estandar\nqqnorm(y)                             # producimos el gráfico Q-Q"
+  },
+  {
+    "objectID": "biohack-modulo5.html#gráfico-q-q-2",
+    "href": "biohack-modulo5.html#gráfico-q-q-2",
+    "title": "biohack-modulo5",
+    "section": "Gráfico Q-Q",
+    "text": "Gráfico Q-Q\n\nset.seed(123)\ny &lt;- rnorm(n = 30, mean = 0, sd = 1)  # simulamos 30 observaciones de una normal estandar\nqqnorm(y)                             # producimos el gráfico Q-Q"
+  },
+  {
+    "objectID": "biohack-modulo5.html#prueba-de-normalidad-shapiro-wilk",
+    "href": "biohack-modulo5.html#prueba-de-normalidad-shapiro-wilk",
+    "title": "biohack-modulo5",
+    "section": "Prueba de normalidad Shapiro-Wilk",
+    "text": "Prueba de normalidad Shapiro-Wilk\n\n\nLa \\(H_0\\) de esta prueba (y del resto de pruebas formales de normalidad) es que un set de \\(n\\) observaciones es normalmente distribuido.\nOtro conocido método es Kolmogorov-Smirnov. Sin embargo, Shapiro-Wilk es más apropiado para cuando el número de muestras es menor a 50.\nPara ilustrar su uso, chequeemos la normalidad de los datos que simulamos anteriormente\n\n\n\n\nshapiro.test(y)\n\n\n    Shapiro-Wilk normality test\n\ndata:  y\nW = 0.97894, p-value = 0.7966"
+  },
+  {
+    "objectID": "biohack-modulo5.html#prueba-de-homogeneidad-de-las-varianzas",
+    "href": "biohack-modulo5.html#prueba-de-homogeneidad-de-las-varianzas",
+    "title": "biohack-modulo5",
+    "section": "Prueba de homogeneidad de las varianzas",
+    "text": "Prueba de homogeneidad de las varianzas\n\n\nEn el caso de comparaciones entre las medias de dos grupos, la homogeneidad de varianzas puede chequearse usando la prueba F.\nLa prueba t de una muestra no requiere chequear este supuesto.\nPara ilustrar su uso, creemos otro vector con datos simulados. En este caso, un igual número de observaciones con la misma desviación estándar pero diferente media:\n\n\n\n\nset.seed(123)\nx &lt;- rnorm(n = 30, mean = 4, sd = 1)\nvar.test(x, y)\n\n\n    F test to compare two variances\n\ndata:  x and y\nF = 1, num df = 29, denom df = 29, p-value = 1\nalternative hypothesis: true ratio of variances is not equal to 1\n95 percent confidence interval:\n 0.4759648 2.1009958\nsample estimates:\nratio of variances \n                 1"
+  },
+  {
+    "objectID": "biohack-modulo5.html#supuestos-en-la-práctica",
+    "href": "biohack-modulo5.html#supuestos-en-la-práctica",
+    "title": "biohack-modulo5",
+    "section": "Supuestos en la práctica",
+    "text": "Supuestos en la práctica\n\ninstall.packages(\"UsingR\")\nlibrary(UsingR)\ndata(crime)\nshapiro.test(crime$y1983)\nshapiro.test(crime$y1993)\nvar.test(crime$y1983, crime$y1993)\n\n\n\n\nNormalidad 1983\n\nshapiro.test(crime$y1983)     \n\n\n    Shapiro-Wilk normality test\n\ndata:  crime$y1983\nW = 0.77333, p-value = 1.827e-07\n\n\n\nNormalidad 1993\n\nshapiro.test(crime$y1993)     \n\n\n    Shapiro-Wilk normality test\n\ndata:  crime$y1993\nW = 0.77348, p-value = 1.841e-07\n\n\n\n\n\n\n\nHomogeneidad de las varianzas\n\nvar.test(crime$y1983, crime$y1993)\n\n\n    F test to compare two variances\n\ndata:  crime$y1983 and crime$y1993\nF = 0.49163, num df = 50, denom df = 50, p-value = 0.01342\nalternative hypothesis: true ratio of variances is not equal to 1\n95 percent confidence interval:\n 0.2806163 0.8613069\nsample estimates:\nratio of variances \n         0.4916266"
+  },
+  {
+    "objectID": "biohack-modulo5.html#transformación-de-variables",
+    "href": "biohack-modulo5.html#transformación-de-variables",
+    "title": "biohack-modulo5",
+    "section": "Transformación de variables",
+    "text": "Transformación de variables\n\n\nA menudo nos encontraremos con conjuntos de observaciones que no cumplen uno o ninguno de los supuestos.\nAntes de considerar pruebas no paramétricas, podemos intentar transformaciones de variables para regresar al mundo de las pruebas paramétricas. Las transformaciones más usadas son:\n\nLa raíz cuadrada (si los datos no contienen números negativos)\nElevar al cuadrado\nLogaritmo (si los datos no contienen números negativos)"
+  },
+  {
+    "objectID": "biohack-modulo5.html#transformación-de-variables-1",
+    "href": "biohack-modulo5.html#transformación-de-variables-1",
+    "title": "biohack-modulo5",
+    "section": "Transformación de variables",
+    "text": "Transformación de variables\n\n\nExiste un método más sofisticado para “normalizar” una muestra. La transformación de Box-Cox.\nCuando se trabaja con muestras transformadas, el objetivo es poder revertir la transformación a las unidades reales para así poder hacer conclusiones sobre las inferencias estadísticas.\nEn otras palabras, una misma transformación debe aplicarse a todos los grupos a ser comparados. NO tiene ningún sentido tratar de realizar inferencias entre grupos donde se hayan usado distintas transformaciones para normalizarlos.\nSi el número de observaciones es muy reducido, usualmente no hay transformación que funcione y se recomienda usar directamente pruebas no paramétricas."
+  },
+  {
+    "objectID": "biohack-modulo5.html#transformación-de-variables-2",
+    "href": "biohack-modulo5.html#transformación-de-variables-2",
+    "title": "biohack-modulo5",
+    "section": "Transformación de variables",
+    "text": "Transformación de variables\n\n\nRaíz cuadrada\n\nshapiro.test(sqrt(crime$y1983))     \n\n\n    Shapiro-Wilk normality test\n\ndata:  sqrt(crime$y1983)\nW = 0.9411, p-value = 0.01359\n\n\n\nElevar al cuadrado\n\nshapiro.test(crime$y1983^2)     \n\n\n    Shapiro-Wilk normality test\n\ndata:  crime$y1983^2\nW = 0.38921, p-value = 2.954e-13\n\n\n\n\n\nLogaritmo\n\nshapiro.test(log(crime$y1983))     \n\n\n    Shapiro-Wilk normality test\n\ndata:  log(crime$y1983)\nW = 0.98076, p-value = 0.5713\n\n\n\nChequeemos con el otro grupo\n\nshapiro.test(log(crime$y1993))     \n\n\n    Shapiro-Wilk normality test\n\ndata:  log(crime$y1993)\nW = 0.96191, p-value = 0.1006\n\n\n\n\nHomogeneidad de las varianzas con transformación logarítmica\n\nvar.test(log(crime$y1983), log(crime$y1993))\n\n\n    F test to compare two variances\n\ndata:  log(crime$y1983) and log(crime$y1993)\nF = 0.84048, num df = 50, denom df = 50, p-value = 0.5412\nalternative hypothesis: true ratio of variances is not equal to 1\n95 percent confidence interval:\n 0.4797393 1.4724831\nsample estimates:\nratio of variances \n         0.8404808"
+  },
+  {
+    "objectID": "biohack-modulo5.html#prueba-t-de-una-muestra",
+    "href": "biohack-modulo5.html#prueba-t-de-una-muestra",
+    "title": "biohack-modulo5",
+    "section": "Prueba t de una muestra",
+    "text": "Prueba t de una muestra\n\n\nEs usada para comparar la media aritmética de una muestra con un valor conocido (un estándar por ejemplo).\nPor lo general el valor al que se va a comparar proviene de referencias bibliográficas, pre-experimentos o supociones fundamentadas.\nEn este caso, el supuesto que debe cumplirse es el de la normalidad de los datos\nRegresando al ejemplo de los ratones, determinemos si la media de la siguiente muestra es mayor al límite superior de glucosa de ratones saludables (100 mg/dL)."
+  },
+  {
+    "objectID": "biohack-modulo5.html#prueba-t-de-una-muestra-1",
+    "href": "biohack-modulo5.html#prueba-t-de-una-muestra-1",
+    "title": "biohack-modulo5",
+    "section": "Prueba t de una muestra",
+    "text": "Prueba t de una muestra\n\nglc_rat &lt;- c(108.7, 93.7, 52.7, 79.0, 74.7, 131.9, 99.5, 63.3, 98.6, 92.7)\nratest &lt;- t.test(glc_rat,\n       mu = 100,\n       alternative = \"greater\")\nratest"
+  },
+  {
+    "objectID": "biohack-modulo5.html#prueba-t-de-una-muestra-2",
+    "href": "biohack-modulo5.html#prueba-t-de-una-muestra-2",
+    "title": "biohack-modulo5",
+    "section": "Prueba t de una muestra",
+    "text": "Prueba t de una muestra\n\nglc_rat &lt;- c(108.7, 93.7, 52.7, 79.0, 74.7, 131.9, 99.5, 63.3, 98.6, 92.7)\nratest &lt;- t.test(glc_rat,\n       mu = 100,\n       alternative = \"greater\")\nratest\n\n\n    One Sample t-test\n\ndata:  glc_rat\nt = -1.4485, df = 9, p-value = 0.9093\nalternative hypothesis: true mean is greater than 100\n95 percent confidence interval:\n 76.16687      Inf\nsample estimates:\nmean of x \n    89.48"
+  },
+  {
+    "objectID": "biohack-modulo5.html#prueba-t-de-muestras-independientes",
+    "href": "biohack-modulo5.html#prueba-t-de-muestras-independientes",
+    "title": "biohack-modulo5",
+    "section": "Prueba t de muestras independientes",
+    "text": "Prueba t de muestras independientes\n\n\nEs usada para comparar las medias aritméticas de dos grupos independientes.\nPor ejemplo, si deseas comparar las medias aritméticas de individuos agrupados por sexo.\nPara ilustrar esta prueba, vamos a hacer uso de la tabla de datos de genderweight del paquete {datarium}.\n\nVeamos si existe una diferencia significativa en la media del peso entre hombres y mujeres\n\n\n\n\n\ninstall.packages(\"datarium\")\nlibrary(datarium)\ndata(genderweight)"
+  },
+  {
+    "objectID": "biohack-modulo5.html#prueba-t-de-muestras-independientes-1",
+    "href": "biohack-modulo5.html#prueba-t-de-muestras-independientes-1",
+    "title": "biohack-modulo5",
+    "section": "Prueba t de muestras independientes",
+    "text": "Prueba t de muestras independientes\n\n\nChequeamos normalidad: Group M\n\nshapiro.test(subset(genderweight, group == \"M\")$weight)     \n\n\n    Shapiro-Wilk normality test\n\ndata:  subset(genderweight, group == \"M\")$weight\nW = 0.98634, p-value = 0.9886\n\n\n\nChequeamos normalidad: Group F\n\nshapiro.test(subset(genderweight, group == \"F\")$weight)     \n\n\n    Shapiro-Wilk normality test\n\ndata:  subset(genderweight, group == \"F\")$weight\nW = 0.93847, p-value = 0.2243\n\n\n\n\nChequeamos la homogeneidad de las varianzas\n\nvar.test(genderweight$weight ~ genderweight$group)\n\n\n    F test to compare two variances\n\ndata:  genderweight$weight by genderweight$group\nF = 0.21692, num df = 19, denom df = 19, p-value = 0.001648\nalternative hypothesis: true ratio of variances is not equal to 1\n95 percent confidence interval:\n 0.08585766 0.54802553\nsample estimates:\nratio of variances \n         0.2169152 \n\n\n\n\n¡La homogeneidad de las varianzas no se cumple! 😱"
+  },
+  {
+    "objectID": "biohack-modulo5.html#prueba-t-de-muestras-independientes-2",
+    "href": "biohack-modulo5.html#prueba-t-de-muestras-independientes-2",
+    "title": "biohack-modulo5",
+    "section": "Prueba t de muestras independientes",
+    "text": "Prueba t de muestras independientes\n\n\n¿Debemos transformar? No necesariamente\nEl no cumplir con el supuesto de la homogeneidad de varianzas no es un gran problema gracias a varias correcciones.\nLa función base de R t.test cuenta con el argumento var.equal = F como default.\nBajo este argumento, no se asumen varianzas iguales entre los grupos y en su lugar R lleva a cabo la aproximación de Welch para lidiar con este problema.\n\n\n\n\ngendertest &lt;- t.test(genderweight$weight ~ genderweight$group)\ngendertest\n\n\n    Welch Two Sample t-test\n\ndata:  genderweight$weight by genderweight$group\nt = -20.791, df = 26.872, p-value &lt; 2.2e-16\nalternative hypothesis: true difference in means between group F and group M is not equal to 0\n95 percent confidence interval:\n -24.53135 -20.12353\nsample estimates:\nmean in group F mean in group M \n       63.49867        85.82612"
+  },
+  {
+    "objectID": "biohack-modulo5.html#prueba-t-para-muestras-emparejadas",
+    "href": "biohack-modulo5.html#prueba-t-para-muestras-emparejadas",
+    "title": "biohack-modulo5",
+    "section": "Prueba t para muestras emparejadas",
+    "text": "Prueba t para muestras emparejadas\n\n\nEs usada para comparar las medias de dos grupos que guardan una relación.\nEsto solo ocurre cuando las medidas se han realizado en las mismas unidades experimentales. Ejemplos: individuos al inicio y al final de un tratamiento, muestras en una misma locación geográfica.\nPara esta prueba, vamos a usar la tabla de datos crime del paquete {UsingR}\n\nVeamos si existe una diferencia en las tasas de crimen (# de reportes/100000 habitantes) en 50 estados de los Estados unidos entre 1983 y 1993\n\n\n\n\n\ndata(crime)"
+  },
+  {
+    "objectID": "biohack-modulo5.html#prueba-t-para-muestras-emparejadas-1",
+    "href": "biohack-modulo5.html#prueba-t-para-muestras-emparejadas-1",
+    "title": "biohack-modulo5",
+    "section": "Prueba t para muestras emparejadas",
+    "text": "Prueba t para muestras emparejadas\n\ncrimetest &lt;- t.test(x = log(crime$y1983), y = log(crime$y1993), paired = TRUE)\ncrimetest\nexp(mean(log(crime$y1983)))\nexp(mean(log(crime$y1993)))"
+  },
+  {
+    "objectID": "biohack-modulo5.html#prueba-t-para-muestras-emparejadas-2",
+    "href": "biohack-modulo5.html#prueba-t-para-muestras-emparejadas-2",
+    "title": "biohack-modulo5",
+    "section": "Prueba t para muestras emparejadas",
+    "text": "Prueba t para muestras emparejadas\n\ncrimetest &lt;- t.test(x = log(crime$y1983), y = log(crime$y1993), paired = TRUE)\ncrimetest\n\n\n    Paired t-test\n\ndata:  log(crime$y1983) and log(crime$y1993)\nt = -10.027, df = 50, p-value = 1.469e-13\nalternative hypothesis: true mean difference is not equal to 0\n95 percent confidence interval:\n -0.3628437 -0.2417349\nsample estimates:\nmean difference \n     -0.3022893 \n\nexp(mean(log(crime$y1983)))\n\n[1] 362.8298\n\nexp(mean(log(crime$y1993)))\n\n[1] 490.8915"
+  },
+  {
+    "objectID": "biohack-modulo5.html#pruebas-de-wilcoxon-para-datos-no-normales",
+    "href": "biohack-modulo5.html#pruebas-de-wilcoxon-para-datos-no-normales",
+    "title": "biohack-modulo5",
+    "section": "Pruebas de Wilcoxon para datos no normales",
+    "text": "Pruebas de Wilcoxon para datos no normales\n\n\nLas pruebas de Wilcoxon usan la mediana como criterio para evaluar la \\(H_0\\).\nLastimosamente, estas pruebas son usualmente menos poderosas (mayor tasa de errores tipo II).\nTiene dos formas:\n\nPruebas para una muestra (análoga a la prueba t para una muestra)\nPruebas para dos muestras (análoga a las pruebas t para dos muestras independientes y emparejadas)"
+  },
+  {
+    "objectID": "biohack-modulo5.html#prueba-de-wilcoxon-para-una-muestra",
+    "href": "biohack-modulo5.html#prueba-de-wilcoxon-para-una-muestra",
+    "title": "biohack-modulo5",
+    "section": "Prueba de Wilcoxon para una muestra",
+    "text": "Prueba de Wilcoxon para una muestra\n\n\nProf. Danielle Navarro midió el nivel de felicidad de sus estudiantes antes y después de su clase de Estadística. Ella estaba interesada en saber si el tomar una clase de Estadística tiene algún efecto en la felicidad de sus estudiantes. Los datos que obtuvo no están normalmente distribuidos. Por ello, se vio en la necesidad de llevar a cabo una prueba de Wilcoxon.\nEn este caso, la \\(H_0\\), es que la diferencia de la mediana de la felicidad de sus estudiantes antes y después de la clase debería ser igual a cero para concluir que no existe tal efecto."
+  },
+  {
+    "objectID": "biohack-modulo5.html#prueba-de-wilcoxon-para-una-muestra-1",
+    "href": "biohack-modulo5.html#prueba-de-wilcoxon-para-una-muestra-1",
+    "title": "biohack-modulo5",
+    "section": "Prueba de Wilcoxon para una muestra",
+    "text": "Prueba de Wilcoxon para una muestra\n\n# Primero recreo la tabla de Prof. Navarro\nfelicidad &lt;- data.frame(before = c(30,43,21,24,23,40,29,56,38,16),\n                        after = c(6,29,11,31,17,2,31,21,8,21))\nfelicidad$change &lt;- felicidad$after - felicidad$before\n\nmuestra_wilcox &lt;- wilcox.test(felicidad$change, mu = 0)\nmuestra_wilcox\n\n\n    Wilcoxon signed rank exact test\n\ndata:  felicidad$change\nV = 7, p-value = 0.03711\nalternative hypothesis: true location is not equal to 0"
+  },
+  {
+    "objectID": "biohack-modulo5.html#prueba-de-wilcoxon-para-dos-muestras",
+    "href": "biohack-modulo5.html#prueba-de-wilcoxon-para-dos-muestras",
+    "title": "biohack-modulo5",
+    "section": "Prueba de Wilcoxon para dos muestras",
+    "text": "Prueba de Wilcoxon para dos muestras\n\n\nRegresando al ejemplo de la tabla de datos genderweight, supongamos que estos no están normalmente distribuidos.\nUsaremos la prueba de Wilcoxon para muestras independientes para ver si existe diferencia entre los pesos de hombres y mujeres.\n\n\n\n\ndos_wilcox &lt;- wilcox.test(genderweight$weight ~ genderweight$group)\ndos_wilcox\n\n\n    Wilcoxon rank sum exact test\n\ndata:  genderweight$weight by genderweight$group\nW = 0, p-value = 1.451e-11\nalternative hypothesis: true location shift is not equal to 0"
+  },
+  {
+    "objectID": "biohack-modulo5.html#report",
+    "href": "biohack-modulo5.html#report",
+    "title": "biohack-modulo5",
+    "section": "{report}",
+    "text": "{report}\n\n\nEl redactar resultados estadísticos puede resultar en una tarea compleja.\nAfortunadamente contamos con la ayuda de {report}, parte del multiverso {easystats} que nos puede dar guías para ello.\n\n\n\n\ninstall.packages(\"easystats\")\nlibrary(report)\n\n\nreport(dos_wilcox)\n\nEffect sizes were labelled following Funder's (2019) recommendations.\n\nThe Wilcoxon rank sum exact test testing the difference in ranks between\ngenderweight$weight and genderweight$group suggests that the effect is\nnegative, statistically significant, and very large (W = 0.00, p &lt; .001; r\n(rank biserial) = -1.00, 95% CI [-1.00, -1.00])\n\n\n\nreport(crimetest)\n\nEffect sizes were labelled following Cohen's (1988) recommendations.\n\nThe Paired t-test testing the difference between log(crime$y1983) and\nlog(crime$y1993) (mean difference = -0.30) suggests that the effect is\nnegative, statistically significant, and large (difference = -0.30, 95% CI\n[-0.36, -0.24], t(50) = -10.03, p &lt; .001; Cohen's d = -1.40, 95% CI [-1.79,\n-1.01])"
+  },
+  {
+    "objectID": "biohack-modulo5.html#introducción",
+    "href": "biohack-modulo5.html#introducción",
+    "title": "biohack-modulo5",
+    "section": "Introducción",
+    "text": "Introducción\n\n\nHasta el momento nos hemos enfocado a los casos donde comparamos las medias entre dos grupos.\nPero es más común el evaluar distintos tratamientos al mismo tiempo.\nPara ello, contamos con el ANOVA, desarrollado por el estadístico Ronald Fisher a inicios del siglo 20, y que sin duda es el método estadístico más usado hoy en día.\nEl objetivo de un ANOVA es el de determinar la existencia de diferencias entre las medias aritméticas de las muestras representativas de \\(n\\) poblaciones (o en términos más precisos, tratamientos)."
+  },
+  {
+    "objectID": "biohack-modulo5.html#supuestos-del-anova",
+    "href": "biohack-modulo5.html#supuestos-del-anova",
+    "title": "biohack-modulo5",
+    "section": "Supuestos del ANOVA",
+    "text": "Supuestos del ANOVA\n\n\nIndependencia de los datos: correcta randomización en el diseño del experimento.\nHomogeneidad de las varianzas: la varianza entre los tratamientos es la misma.\nNormalidad: pero, ¿de qué exactamente?\n\n\nCómo vimos antes, la normalidad es un requisito para conducir pruebas t, y lo es también para el ANOVA.\nMuchos libros de texto y otros recursos, mencionan que los datos de cada tratamiento deben ser normalmente distribuidos para llevar a cabo un ANOVA. Esto es cierto e impráctico a la vez.\nEs común el sugerir el llevar a cabo una prueba de normalidad antes de un ANOVA, pero debemos considerar que:\n\nCada tratamiento tiene su propia media, en caso de medias muy distantes entre sí, la prueba puede fallar.\nEn su lugar, podrías correr una prueba por cada tratamiento. Esto solo funciona con un considerable número de observaciones/tratamiento."
+  },
+  {
+    "objectID": "biohack-modulo5.html#supuestos-del-anova-1",
+    "href": "biohack-modulo5.html#supuestos-del-anova-1",
+    "title": "biohack-modulo5",
+    "section": "Supuestos del ANOVA",
+    "text": "Supuestos del ANOVA\n\n\nEsto nos puede llevar a soluciones erróneas como transformar datos, borrar outliers o utilizar pruebas no paramétricas innecesariamente.\nEntonces, ¿normalidad de qué?\nDe los residuos estandarizados!… ¿Qué es un residual?\n\nUn residual es la diferencia entre una observación y su predicción\nUn residual estandarizado resulta de la división del residual para la raíz cuadrada de la predicción\nLa distribución muestral de los residuos estandarizados tiene media 0 y desviación estándar 1\n\nPero, ¿por qué la confusión? Solo cuando el número de observaciones es lo suficientemente grande, se tiene la certeza que los residuos serán normalmente distribuidos.\nEn resumen, es mejor chequear la normalidad después que realizamos el ANOVA."
+  },
+  {
+    "objectID": "biohack-modulo5.html#anova-de-una-vía",
+    "href": "biohack-modulo5.html#anova-de-una-vía",
+    "title": "biohack-modulo5",
+    "section": "ANOVA de una vía",
+    "text": "ANOVA de una vía\n\nANOVA de una vía se refiere cuando tenemos más de dos tratamientos que están definidos por un solo factor a la vez.\nPara esta sección usaremos el dataset de moscas de la fruta de la librería {Stat2Data}:\n\n\ninstall.packages(\"Stat2Data\")\nlibrary(Stat2Data)\ndata(FruitFlies)\n\n\n\nEstos datos corresponden a un estudio realizado por Partridge y Farquhar reportados por Hanley y Shapiro acerca del comportamiento sexual de moscas de la fruta.\nLa pregunta de investigación consistió en determinar si un incremento en la actividad sexual de moscas de sexo masculino reduce su esperanza de vida.\nEl experimento consistió de 125 moscas de sexo masculino que fueron asignadas al azar a los siguientes grupos:\n\n8 vírgenes: un macho con 8 hembras vírgenes\n1 virgen: un macho con una hembra virgen\n8 embarazadas: un macho con 8 hembras embarazadas\n1 embarazada: un macho con una hembra embarazada\nninguna: un macho solo"
+  },
+  {
+    "objectID": "biohack-modulo5.html#anova-de-una-vía-1",
+    "href": "biohack-modulo5.html#anova-de-una-vía-1",
+    "title": "biohack-modulo5",
+    "section": "ANOVA de una vía",
+    "text": "ANOVA de una vía\n\n\n\nlibrary(ggplot2)\nFruitFlies |&gt;\n  ggplot(aes(x = Treatment, \n             y = Longevity, \n             group = Treatment))+\n  geom_violin(fill = \"blue\", \n              alpha = 0.25)+\n  geom_boxplot(width = 0.15,\n               fill = \"orange\",\n               outlier.color = \"red\",\n               outlier.size = 3)+\n  theme_bw()"
+  },
+  {
+    "objectID": "biohack-modulo5.html#anova-de-una-vía-en-r",
+    "href": "biohack-modulo5.html#anova-de-una-vía-en-r",
+    "title": "biohack-modulo5",
+    "section": "ANOVA de una vía en R",
+    "text": "ANOVA de una vía en R\n\n\nExisten dos formas de llevar a cabo ANOVA en R:\n\nCrear un modelo lineal con la función lm y luego el ANOVA con la función anova sobre el objeto producto de lm.\nAplicar directamente la función aov sobre nuestros datos.\n\nAmbas funciones (lm y aov) tienen la misma sintaxis. La primera opción es la más usada.\nAdicionalmente, el paquete car ofrece la función Anova. El resultado de ambas es prácticamente el mismo para la mayoría de modelos. La ventaja de esta última yace en que Anova puede realizar cálculos de los valores críticos usando sumas de cuadrados de tipo I, II y III."
+  },
+  {
+    "objectID": "biohack-modulo5.html#anova-de-una-vía-en-r-1",
+    "href": "biohack-modulo5.html#anova-de-una-vía-en-r-1",
+    "title": "biohack-modulo5",
+    "section": "ANOVA de una vía en R",
+    "text": "ANOVA de una vía en R\n\n\nOpción 1\n\nlibrary(car)\nlm1 &lt;- lm(Longevity ~ Treatment, data = FruitFlies)\nAnova(lm1)\n\n\nOpción 2\n\nanova1 &lt;- aov(Longevity ~ Treatment, data = FruitFlies)\nsummary(anova1)\n\n\n\n\n\n\nAnova Table (Type II tests)\n\nResponse: Longevity\n          Sum Sq  Df F value    Pr(&gt;F)    \nTreatment  11939   4  13.612 3.516e-09 ***\nResiduals  26314 120                      \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\n\n\n\n             Df Sum Sq Mean Sq F value   Pr(&gt;F)    \nTreatment     4  11939  2984.8   13.61 3.52e-09 ***\nResiduals   120  26314   219.3                     \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1"
+  },
+  {
+    "objectID": "biohack-modulo5.html#anova-de-una-vía-en-r-2",
+    "href": "biohack-modulo5.html#anova-de-una-vía-en-r-2",
+    "title": "biohack-modulo5",
+    "section": "ANOVA de una vía en R",
+    "text": "ANOVA de una vía en R\n\n\nOpción 1\n\nreport(Anova(lm1))\n\n\nOpción 2\n\nreport(anova1)\n\n\n\n\n\n\nThe ANOVA suggests that:\n\n  - The main effect of Treatment is statistically significant and large (F(4,\n120) = 13.61, p &lt; .001; Eta2 = 0.31, 95% CI [0.19, 1.00])\n\nEffect sizes were labelled following Field's (2013) recommendations.\n\n\n\n\n\nThe ANOVA (formula: Longevity ~ Treatment) suggests that:\n\n  - The main effect of Treatment is statistically significant and large (F(4,\n120) = 13.61, p &lt; .001; Eta2 = 0.31, 95% CI [0.19, 1.00])\n\nEffect sizes were labelled following Field's (2013) recommendations."
+  },
+  {
+    "objectID": "biohack-modulo5.html#anova-de-una-vía-en-r-3",
+    "href": "biohack-modulo5.html#anova-de-una-vía-en-r-3",
+    "title": "biohack-modulo5",
+    "section": "ANOVA de una vía en R",
+    "text": "ANOVA de una vía en R\n\nlibrary(insight)\nlibrary(flextable)\nanova1 |&gt; \n  report_table() |&gt; \n  format_table() |&gt;\n  flextable()\n\nParameterSum_SquaresdfMean_SquareFpEta2Eta2 95% CITreatment11939.2842984.8213.61&lt; .0010.31[0.19, 1.00]Residuals26313.52120219.28"
+  },
+  {
+    "objectID": "biohack-modulo5.html#diagnósticos-del-anova",
+    "href": "biohack-modulo5.html#diagnósticos-del-anova",
+    "title": "biohack-modulo5",
+    "section": "Diagnósticos del ANOVA",
+    "text": "Diagnósticos del ANOVA\n\n\nAntes de conducir pruebas formales para los supuestos del ANOVA, es preciso darle un vistazo a diagnósticos visuales que podemos obtener del mismo.\nEl ANOVA es un caso de regresión lineal (con predictores categóricos), por lo que en esta sección nos centraremos en la interpretación de estos diagnósticos desde la perspectiva del ANOVA.\nEn el apartado de regresión lineal volveremos a profundizar en las interpretaciones de los mismos para ese caso determinado.\nPara acceder a estos diagnósticos, basta usar la función plot sobre el objeto donde guardamos los resultados del modelo lm1."
+  },
+  {
+    "objectID": "biohack-modulo5.html#diagnósticos-del-anova-1",
+    "href": "biohack-modulo5.html#diagnósticos-del-anova-1",
+    "title": "biohack-modulo5",
+    "section": "Diagnósticos del ANOVA",
+    "text": "Diagnósticos del ANOVA\n\nlm1 &lt;- lm(Longevity ~ Treatment, data = FruitFlies)\npar(mfrow = c(2, 2))\nplot(lm1)\npar(mfrow = c(1, 1))"
+  },
+  {
+    "objectID": "biohack-modulo5.html#diagnósticos-del-anova-2",
+    "href": "biohack-modulo5.html#diagnósticos-del-anova-2",
+    "title": "biohack-modulo5",
+    "section": "Diagnósticos del ANOVA",
+    "text": "Diagnósticos del ANOVA"
+  },
+  {
+    "objectID": "biohack-modulo5.html#diagnósticos-del-anova-3",
+    "href": "biohack-modulo5.html#diagnósticos-del-anova-3",
+    "title": "biohack-modulo5",
+    "section": "Diagnósticos del ANOVA",
+    "text": "Diagnósticos del ANOVA\n\n\n\n\n\n\n\n\n\n\n\n\nResiduos vs. Valores ajustados\nEn este plot podemos evidenciar departuras del supuesto de la homocedasticidad. Idealmente, la línea roja que se muestra debería ir a lo largo de la horizontal en la coordenada cero del eje y (sobre la línea entrecortada)."
+  },
+  {
+    "objectID": "biohack-modulo5.html#diagnósticos-del-anova-4",
+    "href": "biohack-modulo5.html#diagnósticos-del-anova-4",
+    "title": "biohack-modulo5",
+    "section": "Diagnósticos del ANOVA",
+    "text": "Diagnósticos del ANOVA\n\n\n\n\n\n\n\n\n\n\n\n\nGráfico Q-Q\nA diferencia del gráfico Q-Q que vimos para las pruebas t, en el eje y de este mismo gráfico para el ANOVA (y regresión lineal) se representan los residuos estandarizados. La interpretación es la misma: idealmente los puntos deberían ir a lo largo de la diagonal. Cuando no es así, evidencia una violación del supuesto de la normalidad."
+  },
+  {
+    "objectID": "biohack-modulo5.html#diagnósticos-del-anova-5",
+    "href": "biohack-modulo5.html#diagnósticos-del-anova-5",
+    "title": "biohack-modulo5",
+    "section": "Diagnósticos del ANOVA",
+    "text": "Diagnósticos del ANOVA\n\n\n\n\n\n\n\n\n\n\n\n\nRaíz cuadrada de los residuos estandarizados vs. Valores ajustados\nSimilar al primer diagnóstico, en el caso del ANOVA, nos da una idea de posibles departuras de la homogeneidad de las varianzas. La línea roja idealmente debería ser completamente horizontal."
+  },
+  {
+    "objectID": "biohack-modulo5.html#diagnósticos-del-anova-6",
+    "href": "biohack-modulo5.html#diagnósticos-del-anova-6",
+    "title": "biohack-modulo5",
+    "section": "Diagnósticos del ANOVA",
+    "text": "Diagnósticos del ANOVA\n\n\n\n\n\n\n\n\n\n\n\n\nResiduos vs. Apalancamiento\nAquellos puntos que estén etiquetados con números son mostrados como posibles outliers bajo dos criterios:\n\nEstán por fuera de los límites de la regla del rango intercuartílico (IQR), y\nMarcados como outliers con influencia de apalancamiento mediante la prueba de Cook (distancia de Cook).\n\nEl segundo criterio es un argumento sólido para remover outliers."
+  },
+  {
+    "objectID": "biohack-modulo5.html#pruebas-formales-de-los-supuestos-del-anova",
+    "href": "biohack-modulo5.html#pruebas-formales-de-los-supuestos-del-anova",
+    "title": "biohack-modulo5",
+    "section": "Pruebas formales de los supuestos del ANOVA",
+    "text": "Pruebas formales de los supuestos del ANOVA\nNormalidad de los residuos\n\nresiduos &lt;- lm1$residuals\nshapiro.test(residuos)\n\n\n    Shapiro-Wilk normality test\n\ndata:  residuos\nW = 0.98887, p-value = 0.4088"
+  },
+  {
+    "objectID": "biohack-modulo5.html#pruebas-formales-de-los-supuestos-del-anova-1",
+    "href": "biohack-modulo5.html#pruebas-formales-de-los-supuestos-del-anova-1",
+    "title": "biohack-modulo5",
+    "section": "Pruebas formales de los supuestos del ANOVA",
+    "text": "Pruebas formales de los supuestos del ANOVA\nHomogeneidad de las varianzas con {car}\n\ninstall.packages(\"car\")\nlibrary(car)\nleveneTest(lm1)\n\n\n\nLevene's Test for Homogeneity of Variance (center = median)\n       Df F value Pr(&gt;F)\ngroup   4  0.4916 0.7419\n      120"
+  },
+  {
+    "objectID": "biohack-modulo5.html#comparaciones-múltiples",
+    "href": "biohack-modulo5.html#comparaciones-múltiples",
+    "title": "biohack-modulo5",
+    "section": "Comparaciones múltiples",
+    "text": "Comparaciones múltiples\n\n\nLas comparaciones múltiples más usadas son:\n\nHSD Tukey (Honestly significant difference): lleva a cabo todos los pares de comparaciones posibles entre los niveles de un factor.\nPrueba de Dunnett: Compara los niveles únicamente con respecto al nivel control dentro del factor.\n\nSon conocidas también como pruebas post-hoc.\nEn R, una manera de realizar comparaciones múltiples es mediante los paquetes {emmeans} y {multcomp} (este último depende de {multcompView}, así que no olvides instalarlo también)."
+  },
+  {
+    "objectID": "biohack-modulo5.html#hsd-tukey",
+    "href": "biohack-modulo5.html#hsd-tukey",
+    "title": "biohack-modulo5",
+    "section": "HSD Tukey",
+    "text": "HSD Tukey\n\nCalculamos las medias marginales a partir del modelo\n\nlibrary(emmeans)\nph1 &lt;- emmeans(lm1, specs = \"Treatment\")\nsummary(ph1)"
+  },
+  {
+    "objectID": "biohack-modulo5.html#hsd-tukey-1",
+    "href": "biohack-modulo5.html#hsd-tukey-1",
+    "title": "biohack-modulo5",
+    "section": "HSD Tukey",
+    "text": "HSD Tukey\nCalculamos las medias marginales a partir del modelo\n\nlibrary(emmeans)\nph1 &lt;- emmeans(lm1, specs = \"Treatment\")\nsummary(ph1)\n\n Treatment  emmean   SE  df lower.CL upper.CL\n 1 pregnant   64.8 2.96 120     58.9     70.7\n 1 virgin     56.8 2.96 120     50.9     62.6\n 8 pregnant   63.4 2.96 120     57.5     69.2\n 8 virgin     38.7 2.96 120     32.9     44.6\n none         63.6 2.96 120     57.7     69.4\n\nConfidence level used: 0.95 \n\n\n\n\nAhora podemos calcular las comparaciones por pares de HSD Tukey\n\n\ntukey_comp &lt;- contrast(ph1, specs = \"Treatment\", method = \"tukey\")\ntukey_comp\n\n contrast                estimate   SE  df t.ratio p.value\n 1 pregnant - 1 virgin       8.04 4.19 120   1.920  0.3127\n 1 pregnant - 8 pregnant     1.44 4.19 120   0.344  0.9970\n 1 pregnant - 8 virgin      26.08 4.19 120   6.227  &lt;.0001\n 1 pregnant - none           1.24 4.19 120   0.296  0.9983\n 1 virgin - 8 pregnant      -6.60 4.19 120  -1.576  0.5158\n 1 virgin - 8 virgin        18.04 4.19 120   4.307  0.0003\n 1 virgin - none            -6.80 4.19 120  -1.624  0.4854\n 8 pregnant - 8 virgin      24.64 4.19 120   5.883  &lt;.0001\n 8 pregnant - none          -0.20 4.19 120  -0.048  1.0000\n 8 virgin - none           -24.84 4.19 120  -5.931  &lt;.0001\n\nP value adjustment: tukey method for comparing a family of 5 estimates"
+  },
+  {
+    "objectID": "biohack-modulo5.html#prueba-de-dunnett",
+    "href": "biohack-modulo5.html#prueba-de-dunnett",
+    "title": "biohack-modulo5",
+    "section": "Prueba de Dunnett",
+    "text": "Prueba de Dunnett\n\n\nPara Dunnett, es importante el establecer el grupo control\n\n\ndunnett_comp &lt;- contrast(ph1, specs = \"Treatment\", method = \"dunnett\", ref = \"none\")\ndunnett_comp\n\n contrast          estimate   SE  df t.ratio p.value\n 1 pregnant - none     1.24 4.19 120   0.296  0.9800\n 1 virgin - none      -6.80 4.19 120  -1.624  0.3079\n 8 pregnant - none    -0.20 4.19 120  -0.048  0.9997\n 8 virgin - none     -24.84 4.19 120  -5.931  &lt;.0001\n\nP value adjustment: dunnettx method for 4 tests"
+  },
+  {
+    "objectID": "biohack-modulo5.html#agrupación-de-comparaciones-múltiples",
+    "href": "biohack-modulo5.html#agrupación-de-comparaciones-múltiples",
+    "title": "biohack-modulo5",
+    "section": "Agrupación de comparaciones múltiples",
+    "text": "Agrupación de comparaciones múltiples\n\nFinalmente, otra tabla de resumen de las comparaciones múltiples es la de agrupar las medias aritméticas marginales con números (o letras) de acuerdo a si estas son estadísticamente distintas o no entre si. Para ello podemos usar el paquete multcomp:\n\n\n# multcomp necesita un paquete extra llamada multcompView\n# No olvides instalar multcompView antes de correr este código\nlibrary(multcomp)\nmedias_marginales &lt;- cld(ph1)\nmedias_marginales\n\n Treatment  emmean   SE  df lower.CL upper.CL .group\n 8 virgin     38.7 2.96 120     32.9     44.6  1    \n 1 virgin     56.8 2.96 120     50.9     62.6   2   \n 8 pregnant   63.4 2.96 120     57.5     69.2   2   \n none         63.6 2.96 120     57.7     69.4   2   \n 1 pregnant   64.8 2.96 120     58.9     70.7   2   \n\nConfidence level used: 0.95 \nP value adjustment: tukey method for comparing a family of 5 estimates \nsignificance level used: alpha = 0.05 \nNOTE: If two or more means share the same grouping symbol,\n      then we cannot show them to be different.\n      But we also did not show them to be the same."
+  },
+  {
+    "objectID": "biohack-modulo5.html#antes-de-continuar-3",
+    "href": "biohack-modulo5.html#antes-de-continuar-3",
+    "title": "biohack-modulo5",
+    "section": "Antes de continuar",
+    "text": "Antes de continuar\n\n\nEn este punto, antes de continuar hagamos uso nuevamente del paquete flextable para exportar nuestras tablas a Word.\n\n\n\n\nlibrary(flextable)\ntabla_anova &lt;- anova1 |&gt; \n  report_table() |&gt; \n  format_table() |&gt;\n  flextable()\ntabla_tukey &lt;- colformat_double(flextable(as.data.frame(tukey_comp)), \n                                digits = 3, j = c(2, 3, 6)) |&gt;\n  autofit()\ntabla_dunnett &lt;- colformat_double(flextable(as.data.frame(dunnett_comp)), \n                                  digits = 3, j = c(2, 3, 6)) |&gt;\n  autofit()\ntabla_marginal &lt;- colformat_double(flextable(medias_marginales), \n                                   digits = 3, j = c(2, 3, 5, 6)) |&gt;\n  autofit()\n\n\n\n\n\nParameterSum_SquaresdfMean_SquareFpEta2Eta2 95% CITreatment11939.2842984.8213.61&lt; .0010.31[0.19, 1.00]Residuals26313.52120219.28"
+  },
+  {
+    "objectID": "biohack-modulo5.html#antes-de-continuar-4",
+    "href": "biohack-modulo5.html#antes-de-continuar-4",
+    "title": "biohack-modulo5",
+    "section": "Antes de continuar",
+    "text": "Antes de continuar\n\n\ncontrastestimateSEdft.ratiop.value1 pregnant - 1 virgin8.0404.1881201.91960650.3131 pregnant - 8 pregnant1.4404.1881200.34381010.9971 pregnant - 8 virgin26.0804.1881206.22678320.0001 pregnant - none1.2404.1881200.29605870.9981 virgin - 8 pregnant-6.6004.188120-1.57579640.5161 virgin - 8 virgin18.0404.1881204.30717670.0001 virgin - none-6.8004.188120-1.62354780.4858 pregnant - 8 virgin24.6404.1881205.88297310.0008 pregnant - none-0.2004.188120-0.04775141.0008 virgin - none-24.8404.188120-5.93072450.000\n\n\ncontrastestimateSEdft.ratiop.value1 pregnant - none1.2404.1881200.29605870.9801 virgin - none-6.8004.188120-1.62354780.3088 pregnant - none-0.2004.188120-0.04775141.0008 virgin - none-24.8404.188120-5.93072450.000\n\n\nTreatmentemmeanSEdflower.CLupper.CL.group8 virgin38.7202.96212032.85644.584 1 1 virgin56.7602.96212050.89662.624  28 pregnant63.3602.96212057.49669.224  2none63.5602.96212057.69669.424  21 pregnant64.8002.96212058.93670.664  2"
+  },
+  {
+    "objectID": "biohack-modulo5.html#antes-de-continuar-5",
+    "href": "biohack-modulo5.html#antes-de-continuar-5",
+    "title": "biohack-modulo5",
+    "section": "Antes de continuar",
+    "text": "Antes de continuar\n\nsave_as_docx(\"Tabla Anova\" = tabla_anova, \"Tabla Tukey\" = tabla_tukey, \"Tabla Dunnett\" = tabla_dunnett,\n             \"Tabla Medias Marginales Esperadas\" = tabla_marginal,\n             path = \"C:/Users/mmore/Documents/cursos_2024/biohack/biohack-modulo5/tablas.docx\")"
+  },
+  {
+    "objectID": "biohack-modulo5.html#gráficos-de-comparaciones-múltiples",
+    "href": "biohack-modulo5.html#gráficos-de-comparaciones-múltiples",
+    "title": "biohack-modulo5",
+    "section": "Gráficos de comparaciones múltiples",
+    "text": "Gráficos de comparaciones múltiples\nLibrería {ggstatsplot}\n\n\n\nlibrary(ggstatsplot)\nggbetweenstats(data = FruitFlies,\n               x = Treatment,\n               y = Longevity,\n               pairwise.comparisons = T,\n               pairwise.display = \"significant\",\n               p.adjust.method = \"none\")"
+  },
+  {
+    "objectID": "biohack-modulo5.html#anova-de-un-diseño-desbalanceado",
+    "href": "biohack-modulo5.html#anova-de-un-diseño-desbalanceado",
+    "title": "biohack-modulo5",
+    "section": "ANOVA de un diseño desbalanceado",
+    "text": "ANOVA de un diseño desbalanceado\n\n\nEs común perder observaciones durante un experimento. Esto no representa problemas para llevar a cabo un ANOVA siempre y cuando:\n\nEl porcentaje de observaciones perdidas no es alto (al menos 3 observaciones por tratamiento).\nLa perdida de observaciones no conlleve a desviaciones de los supuestos del método.\n\nLa mayoría de métodos estadísticos requieren ser corregidos ante observaciones perdidas para poder tener la certeza de que los estimados que obtenemos no sean sesgados.\nSin adentrarnos en mayor detalle, uno de los componentes de la tabla de ANOVA es la suma de cuadrados. Existen tres tipos de suma de cuadrados: I, II y III.\nEn breve, las sumas II y III se aconseja sean usadas cuando existen interacciones en el ANOVA.\nEn R, la función aov calcula la suma de cuadrados tipo I. Este tipo de suma no es conveniente ante la presencia de desbalance de los datos.\nEn cambio, la función Anova del paquete {car}, usa por default el tipo II que es precisamente el recomendado usar ante la presencia de desbalance."
+  },
+  {
+    "objectID": "biohack-modulo5.html#ecuación-de-un-anova",
+    "href": "biohack-modulo5.html#ecuación-de-un-anova",
+    "title": "biohack-modulo5",
+    "section": "Ecuación de un ANOVA",
+    "text": "Ecuación de un ANOVA\n\n\nEs bastante común el presentar la ecuación del ANOVA (y otros modelos estadísticos) ya sea en reportes, tesis, artículos, etc.\nPodemos extraerla de una variedad de modelos en R con la ayuda de {equatiomatic}\n\n\n\n\ninstall.packages(\"equatiomatic\")\nlibrary(equatiomatic)\nextract_eq(anova1)\n\nEsto nos devuelve en la consola lo siguiente:\n\\operatorname{Longevity} = \\beta_{1}(\\operatorname{Treatment}) + \\beta_{2}() + \\epsilon\n\n\nEsta línea está dada en código \\(\\LaTeX\\), que renderizada se ve así\n\n\n\\[\n\\operatorname{Longevity} = \\beta_{1}(\\operatorname{Treatment}) + \\beta_{2}() + \\epsilon\n\\]\n\n\n\n\nEn el Módulo 8 aprenderemos como renderizar directamente este tipo de expresiones desde RStudio, usando Quarto"
+  },
+  {
+    "objectID": "biohack-modulo5.html#prueba-de-kruskal-wallis",
+    "href": "biohack-modulo5.html#prueba-de-kruskal-wallis",
+    "title": "biohack-modulo5",
+    "section": "Prueba de Kruskal-Wallis",
+    "text": "Prueba de Kruskal-Wallis\n\n\nLa prueba de Kruskal-Wallis es la alternativa no paramétrica al ANOVA de una vía.\nPuede extenderse al ANOVA de múltiples vías reorganizando el diseño experimental.\nSimilar a las pruebas de Wilcoxon, se basa en encontrar diferencias de las medianas en lugar de las medias y su poder es menor.\nPara ilustrar este ejemplo, supongamos que la variable Longevity no cumplió los supuestos del ANOVA y veamos si existen diferencias con respecto al tratamiento Treatment usando Kruskal-Wallis.\n\n\n\n\nkruskal.test(Longevity ~ Treatment, data = FruitFlies)\n\n\n    Kruskal-Wallis rank sum test\n\ndata:  Longevity by Treatment\nKruskal-Wallis chi-squared = 37.961, df = 4, p-value = 1.142e-07"
+  },
+  {
+    "objectID": "biohack-modulo5.html#comparaciones-múltiples-con-kruskal-wallis",
+    "href": "biohack-modulo5.html#comparaciones-múltiples-con-kruskal-wallis",
+    "title": "biohack-modulo5",
+    "section": "Comparaciones múltiples con Kruskal-Wallis",
+    "text": "Comparaciones múltiples con Kruskal-Wallis\n\n\nCon KW también podemos hacer comparaciones múltiples.\nEn R base contamos con la función pairwise.wilcox.test que lleva a cabo comparaciones por pares mediante el método de Wilcoxon.\n\n\n\n\npairwise.wilcox.test(FruitFlies$Longevity, FruitFlies$Treatment, p.adjust.method = \"BH\")\n\n\n    Pairwise comparisons using Wilcoxon rank sum test with continuity correction \n\ndata:  FruitFlies$Longevity and FruitFlies$Treatment \n\n           1 pregnant 1 virgin 8 pregnant 8 virgin\n1 virgin   0.18111    -        -          -       \n8 pregnant 0.89927    0.18111  -          -       \n8 virgin   6e-06      0.00011  6e-06      -       \nnone       0.88120    0.33694  0.88120    6e-06   \n\nP value adjustment method: BH"
+  },
+  {
+    "objectID": "biohack-modulo5.html#anova-de-múltiples-vías",
+    "href": "biohack-modulo5.html#anova-de-múltiples-vías",
+    "title": "biohack-modulo5",
+    "section": "ANOVA de múltiples vías",
+    "text": "ANOVA de múltiples vías\n\n\nEl ANOVA puede extenderse para analizar dos o más factores a la vez (2 factores: ANOVA de 2 vías; 3 factores: ANOVA de 3 vías…)\nSe lo usa primordialmente para entender posibles interacciones entre los factores.\nEs recomendable diseñar experimentos hasta máximo 3 factores:\n\nCostos de investigación\nA más factores, es más difícil interpretar interacciones\nA más factores, es más fácil caer en interacciones sin sentido\n\nANOVA de dos vías\n\nANOVA aditivo de dos vías (modelo de los efectos principales)\nANOVA no aditivo de dos vías (modelo con interacción)"
+  },
+  {
+    "objectID": "biohack-modulo5.html#anova-aditivo-de-dos-vías",
+    "href": "biohack-modulo5.html#anova-aditivo-de-dos-vías",
+    "title": "biohack-modulo5",
+    "section": "ANOVA aditivo de dos vías",
+    "text": "ANOVA aditivo de dos vías\n\n\nTabla de datos de los “dedos frenéticos” (frantic fingers) de {Stat2Data}\nEstos datos corresponden a un artículo publicado por Scott y Chen donde compararon los efectos de la cafeína y teobromina sobre 4 personas a quienes se les suministró una tableta conteniendo estos compuestos o un placebo (grupo control).\nDos horas después de la ingestión, les fue dada la tarea de tocar sus dedos de maneras predeterminadas. El número de veces en que lo hicieron, fue registrada a lo largo de varios días.\n\n\n\n\ndata(FranticFingers)\nFranticFingers\n\n   ID Rate Subj Drug\n1   1   11    A   Pl\n2   2   56    B   Pl\n3   3   15    C   Pl\n4   4    6    D   Pl\n5   5   26    A   Ca\n6   6   83    B   Ca\n7   7   34    C   Ca\n8   8   13    D   Ca\n9   9   20    A   Th\n10 10   71    B   Th\n11 11   41    C   Th\n12 12   32    D   Th"
+  },
+  {
+    "objectID": "biohack-modulo5.html#anova-aditivo-de-dos-vías-1",
+    "href": "biohack-modulo5.html#anova-aditivo-de-dos-vías-1",
+    "title": "biohack-modulo5",
+    "section": "ANOVA aditivo de dos vías",
+    "text": "ANOVA aditivo de dos vías\n\n\n\nContamos con dos variables categóricas: Subj y Drug que refieren al individuo y el compuesto suministrado.\n\n\nFranticFingers |&gt;\n  ggplot(aes(x = Drug,  y = Rate)) +\n  geom_boxplot() +\n  geom_point(aes(color = Subj), size = 3) +\n  theme_bw()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nEl factor Subj no es de interés, pero notamos como existen diferencias entre sus niveles.\nSi analizaramos los datos como un ANOVA de una vía podríamos cometer un error\n\n\n\nlm2 &lt;- lm(Rate ~ Drug, data = FranticFingers)\nAnova(lm2)\n\nAnova Table (Type II tests)\n\nResponse: Rate\n          Sum Sq Df F value Pr(&gt;F)\nDrug         872  2  0.6754  0.533\nResiduals   5810  9"
+  },
+  {
+    "objectID": "biohack-modulo5.html#anova-aditivo-de-dos-vías-2",
+    "href": "biohack-modulo5.html#anova-aditivo-de-dos-vías-2",
+    "title": "biohack-modulo5",
+    "section": "ANOVA aditivo de dos vías",
+    "text": "ANOVA aditivo de dos vías\n\n\n\nEl efecto de Drug puede estar siendo enmascarado por el factor Subj.\nUna manera de corregir, es añadir Subj a manera de un efecto principal en el modelo\n\n\nlm3 &lt;- lm(Rate ~ Drug + Subj, data = FranticFingers)\nAnova(lm3)\n\nAnova Table (Type II tests)\n\nResponse: Rate\n          Sum Sq Df F value    Pr(&gt;F)    \nDrug         872  2  7.8795 0.0209669 *  \nSubj        5478  3 33.0000 0.0003993 ***\nResiduals    332  6                      \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\n\n\nChequeamos supuestos\n\n\n# Homogeneidad de las varianzas\nleveneTest(Rate ~ Drug, data = FranticFingers)\n\nLevene's Test for Homogeneity of Variance (center = median)\n      Df F value Pr(&gt;F)\ngroup  2  0.1036 0.9027\n       9               \n\n# Normalidad de los residuos\nresiduos &lt;- lm3$residuals\nshapiro.test(residuos)\n\n\n    Shapiro-Wilk normality test\n\ndata:  residuos\nW = 0.95974, p-value = 0.7801"
+  },
+  {
+    "objectID": "biohack-modulo5.html#anova-aditivo-de-dos-vías-3",
+    "href": "biohack-modulo5.html#anova-aditivo-de-dos-vías-3",
+    "title": "biohack-modulo5",
+    "section": "ANOVA aditivo de dos vías",
+    "text": "ANOVA aditivo de dos vías\n\n\nEn general, en una ANOVA aditivo de dos vías, el segundo factor usado como efecto principal cumple un rol de “corrección” del análisis.\nEste factor puede referirse a una característica en común para las observaciones (en el ejemplo dado, el individuo que llevo a cabo el ejercicio).\nEste factor por lo general no se lo interpreta ya que no agrega información importante a la pregunta de investigación inicial.\nPor lo tanto, comparaciones múltiples se llevan a cabo de manera similar a como vimos para el ANOVA de una vía."
+  },
+  {
+    "objectID": "biohack-modulo5.html#anova-no-aditivo-de-dos-vías",
+    "href": "biohack-modulo5.html#anova-no-aditivo-de-dos-vías",
+    "title": "biohack-modulo5",
+    "section": "ANOVA no aditivo de dos vías",
+    "text": "ANOVA no aditivo de dos vías\n\nTabla PigFeed de {Stat2Data} sobre los effectos de aditivos en comida para cerdos sobre su engorde.\nUn investigador midió la ganancia de peso en cerdos al someterlos a una dieta que incluía vitamina B12 y antibióticos.\nVariables: WgtGain ganancia de peso (libras), Antibiotic si o no, y B12 si o no.\n\n\ndata(\"PigFeed\")\nPigFeed\n\n   WgtGain Antibiotic B12\n1       30         No  No\n2        8         No  No\n3       19         No  No\n4        5        Yes  No\n5        0        Yes  No\n6        4        Yes  No\n7       26         No Yes\n8       21         No Yes\n9       19         No Yes\n10      52        Yes Yes\n11      56        Yes Yes\n12      54        Yes Yes"
+  },
+  {
+    "objectID": "biohack-modulo5.html#anova-no-aditivo-de-dos-vías-1",
+    "href": "biohack-modulo5.html#anova-no-aditivo-de-dos-vías-1",
+    "title": "biohack-modulo5",
+    "section": "ANOVA no aditivo de dos vías",
+    "text": "ANOVA no aditivo de dos vías\n\n\n\nPara un ANOVA no aditivo, podemos usar esta sintaxis\n\n\nlm4 &lt;- lm(WgtGain ~ B12 * Antibiotic, data = PigFeed)\nalm4 &lt;- Anova(lm4)\nalm4\n\nAnova Table (Type II tests)\n\nResponse: WgtGain\n               Sum Sq Df F value    Pr(&gt;F)    \nB12              2187  1 60.3310 5.397e-05 ***\nAntibiotic        192  1  5.2966  0.050359 .  \nB12:Antibiotic   1728  1 47.6690  0.000124 ***\nResiduals         290  8                      \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nreport(alm4)\n\nThe ANOVA suggests that:\n\n  - The main effect of B12 is statistically significant and large (F(1, 8) =\n60.33, p &lt; .001; Eta2 (partial) = 0.88, 95% CI [0.68, 1.00])\n  - The main effect of Antibiotic is statistically not significant and large\n(F(1, 8) = 5.30, p = 0.050; Eta2 (partial) = 0.40, 95% CI [0.00, 1.00])\n  - The interaction between B12 and Antibiotic is statistically significant and\nlarge (F(1, 8) = 47.67, p &lt; .001; Eta2 (partial) = 0.86, 95% CI [0.61, 1.00])\n\nEffect sizes were labelled following Field's (2013) recommendations.\n\n\n\n\nChecamos supuestos\n\n\n# Homogeneidad de las varianzas\nleveneTest(lm4)\n\nLevene's Test for Homogeneity of Variance (center = median)\n      Df F value Pr(&gt;F)\ngroup  3  1.8089 0.2235\n       8               \n\n# Normalidad de los residuos\nresiduos &lt;- lm4$residuals\nshapiro.test(residuos)\n\n\n    Shapiro-Wilk normality test\n\ndata:  residuos\nW = 0.92344, p-value = 0.3157"
+  },
+  {
+    "objectID": "biohack-modulo5.html#anova-no-aditivo-de-dos-vías-2",
+    "href": "biohack-modulo5.html#anova-no-aditivo-de-dos-vías-2",
+    "title": "biohack-modulo5",
+    "section": "ANOVA no aditivo de dos vías",
+    "text": "ANOVA no aditivo de dos vías\nGráficos de interacción\n\nPodemos usar emmip de {emmeans}\n\n\n\n\n\nemmip(lm4, Antibiotic ~ B12)\n\n\n\n\n\n\n\n\n\n\nemmip(lm4, B12 ~ Antibiotic)"
+  },
+  {
+    "objectID": "biohack-modulo5.html#anova-no-aditivo-de-dos-vías-3",
+    "href": "biohack-modulo5.html#anova-no-aditivo-de-dos-vías-3",
+    "title": "biohack-modulo5",
+    "section": "ANOVA no aditivo de dos vías",
+    "text": "ANOVA no aditivo de dos vías\nComparaciones múltiples en ANOVA no aditivo\n\nemlm4 &lt;- emmeans(lm4, specs = \"Antibiotic\", by = \"B12\", method = \"tukey\")\ncld(emlm4)\n\nB12 = No:\n Antibiotic emmean   SE df lower.CL upper.CL .group\n Yes             3 3.48  8    -5.02       11  1    \n No             19 3.48  8    10.98       27   2   \n\nB12 = Yes:\n Antibiotic emmean   SE df lower.CL upper.CL .group\n No             22 3.48  8    13.98       30  1    \n Yes            54 3.48  8    45.98       62   2   \n\nConfidence level used: 0.95 \nsignificance level used: alpha = 0.05 \nNOTE: If two or more means share the same grouping symbol,\n      then we cannot show them to be different.\n      But we also did not show them to be the same."
+  },
+  {
+    "objectID": "biohack-modulo5.html#antes-de-terminar",
+    "href": "biohack-modulo5.html#antes-de-terminar",
+    "title": "biohack-modulo5",
+    "section": "Antes de terminar…",
+    "text": "Antes de terminar…\n\n\nstatstest.com"
+  },
+  {
+    "objectID": "biohack-modulo5.html#section-1",
+    "href": "biohack-modulo5.html#section-1",
+    "title": "biohack-modulo5",
+    "section": "",
+    "text": "Fin del módulo 5\n\n\n\n\n\n\n\nCréditos de fotos\n\n\nFoto final por Chris Leipelt en Unsplash\nResto de fotos: Varias fuentes"
+  }
+]
