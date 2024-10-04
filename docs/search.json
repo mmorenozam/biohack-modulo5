@@ -364,6 +364,13 @@
     "text": "{report}\n\n\nEl redactar resultados estadísticos puede resultar en una tarea compleja.\nAfortunadamente contamos con la ayuda de {report}, parte del multiverso {easystats} que nos puede dar guías para ello.\n\n\n\n\ninstall.packages(\"easystats\")\nlibrary(report)\n\n\nreport(dos_wilcox)\n\nEffect sizes were labelled following Funder's (2019) recommendations.\n\nThe Wilcoxon rank sum exact test testing the difference in ranks between\ngenderweight$weight and genderweight$group suggests that the effect is\nnegative, statistically significant, and very large (W = 0.00, p &lt; .001; r\n(rank biserial) = -1.00, 95% CI [-1.00, -1.00])\n\n\n\nreport(crimetest)\n\nEffect sizes were labelled following Cohen's (1988) recommendations.\n\nThe Paired t-test testing the difference between log(crime$y1983) and\nlog(crime$y1993) (mean difference = -0.30) suggests that the effect is\nnegative, statistically significant, and large (difference = -0.30, 95% CI\n[-0.36, -0.24], t(50) = -10.03, p &lt; .001; Cohen's d = -1.40, 95% CI [-1.79,\n-1.01])"
   },
   {
+    "objectID": "biohack-modulo5.html#section-1",
+    "href": "biohack-modulo5.html#section-1",
+    "title": "biohack-modulo5",
+    "section": "",
+    "text": "Ejercicios 5.1"
+  },
+  {
     "objectID": "biohack-modulo5.html#introducción",
     "href": "biohack-modulo5.html#introducción",
     "title": "biohack-modulo5",
@@ -644,6 +651,13 @@
     "text": "ANOVA no aditivo de dos vías\nComparaciones múltiples en ANOVA no aditivo\n\nemlm4 &lt;- emmeans(lm4, specs = \"Antibiotic\", by = \"B12\", method = \"tukey\")\ncld(emlm4)\n\nB12 = No:\n Antibiotic emmean   SE df lower.CL upper.CL .group\n Yes             3 3.48  8    -5.02       11  1    \n No             19 3.48  8    10.98       27   2   \n\nB12 = Yes:\n Antibiotic emmean   SE df lower.CL upper.CL .group\n No             22 3.48  8    13.98       30  1    \n Yes            54 3.48  8    45.98       62   2   \n\nConfidence level used: 0.95 \nsignificance level used: alpha = 0.05 \nNOTE: If two or more means share the same grouping symbol,\n      then we cannot show them to be different.\n      But we also did not show them to be the same."
   },
   {
+    "objectID": "biohack-modulo5.html#section-2",
+    "href": "biohack-modulo5.html#section-2",
+    "title": "biohack-modulo5",
+    "section": "",
+    "text": "Ejercicios 5.2"
+  },
+  {
     "objectID": "biohack-modulo5.html#antes-de-terminar",
     "href": "biohack-modulo5.html#antes-de-terminar",
     "title": "biohack-modulo5",
@@ -651,8 +665,8 @@
     "text": "Antes de terminar…\n\n\nstatstest.com"
   },
   {
-    "objectID": "biohack-modulo5.html#section-1",
-    "href": "biohack-modulo5.html#section-1",
+    "objectID": "biohack-modulo5.html#section-3",
+    "href": "biohack-modulo5.html#section-3",
     "title": "biohack-modulo5",
     "section": "",
     "text": "Fin del módulo 5\n\n\n\n\n\n\n\nCréditos de fotos\n\n\nFoto final por Chris Leipelt en Unsplash\nResto de fotos: Varias fuentes"

@@ -956,6 +956,26 @@ report(crimetest)
 ```
 
 
+## {}
+
+::: columns
+::: {.column width="37.5%"}
+
+:::
+::: {.column width="60%"}
+
+::: {.title data-id="title"}
+[Ejercicios 5.1](https://mmorenozam.github.io/biohack-website/ejercicios_m5.html#ejercicios-5.1){target="_blank"}
+:::
+
+:::{.timer #Timer1 seconds=600 starton=interaction}
+:::
+
+:::
+:::
+
+![](images/snop.png){.image-left}
+
 # Análisis de Varianza (ANOVA)
 
 ## Introducción
@@ -1772,6 +1792,26 @@ emmip(lm4, B12 ~ Antibiotic)
 emlm4 <- emmeans(lm4, specs = "Antibiotic", by = "B12", method = "tukey")
 cld(emlm4)
 ```
+
+## {}
+
+::: columns
+::: {.column width="37.5%"}
+
+:::
+::: {.column width="60%"}
+
+::: {.title data-id="title"}
+[Ejercicios 5.2](https://mmorenozam.github.io/biohack-website/ejercicios_m5.html#ejercicios-5.2){target="_blank"}
+:::
+
+:::{.timer #Timer2 seconds=900 starton=interaction}
+:::
+
+:::
+:::
+
+![](images/marcha.png){.image-left}
 
 
 ## Antes de terminar...
