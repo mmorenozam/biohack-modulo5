@@ -965,7 +965,7 @@ report(crimetest)
 ::: {.column width="60%"}
 
 ::: {.title data-id="title"}
-[Ejercicios 5.1](https://mmorenozam.github.io/biohack-website/ejercicios_m5.html#ejercicios-5.1){target="_blank"}
+[Ejercicios 5.1](https://mmorenozam.github.io/biohack_progR/ejercicios_m5.html#ejercicios-5.1){target="_blank"}
 :::
 
 :::{.timer #Timer1 seconds=600 starton=interaction}
@@ -1802,7 +1802,7 @@ cld(emlm4)
 ::: {.column width="60%"}
 
 ::: {.title data-id="title"}
-[Ejercicios 5.2](https://mmorenozam.github.io/biohack-website/ejercicios_m5.html#ejercicios-5.2){target="_blank"}
+[Ejercicios 5.2](https://mmorenozam.github.io/biohack_progR/ejercicios_m5.html#ejercicios-5.2){target="_blank"}
 :::
 
 :::{.timer #Timer2 seconds=900 starton=interaction}
